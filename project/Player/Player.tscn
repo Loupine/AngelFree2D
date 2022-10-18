@@ -91,9 +91,8 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=11]
-radius = 24.0
-height = 108.0
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 24, 80 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 3
@@ -103,12 +102,12 @@ script = ExtResource( 2 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 10 )
 animation = "flying"
-frame = 3
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -9, 5 )
-shape = SubResource( 11 )
+position = Vector2( -8, 4 )
+shape = SubResource( 27 )
 
 [node name="FlyTimer" type="Timer" parent="."]
 one_shot = true
