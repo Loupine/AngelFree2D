@@ -6,8 +6,8 @@
 [node name="World" type="Control"]
 anchor_right = 1.5
 anchor_bottom = 1.5
-margin_right = -640.0
-margin_bottom = -360.0
+margin_right = -960.0
+margin_bottom = -540.0
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
@@ -16,7 +16,7 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 202, 406 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
@@ -24,4 +24,4 @@ autostart = true
 anchor_mode = 0
 current = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

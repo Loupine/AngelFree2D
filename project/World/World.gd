@@ -14,6 +14,6 @@ func _spawn_enemies(var count : int)-> void:
 		add_child(new_bat)
 
 
-func _on_Timer_timeout()-> void:
+func _on_SpawnTimer_timeout()-> void:
 	_spawn_enemies(randi() % 5)
 	randomize()
