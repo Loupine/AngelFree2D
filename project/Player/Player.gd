@@ -12,15 +12,8 @@ onready var fly_timer := get_node("FlyTimer")
 
 func _physics_process(_delta)-> void:
 	_hande_input()
-	_process_velocity()
+	_process_gravity()
 	_velocity = move_and_slide(_velocity, Vector2.UP)
-
-
-func _process_velocity()-> void:
-	if _velocity.y < _GRAVITY:
-		_velocity.y += _GRAVITY / 5.0
-	else:
-		_velocity.y = _GRAVITY
 
 
 func _hande_input()-> void:
@@ -28,6 +21,13 @@ func _hande_input()-> void:
 		_velocity.y = -_WING_FORCE
 		can_fly = false
 		fly_timer.start()
+
+
+func _process_gravity()-> void:
+	if _velocity.y < _GRAVITY:
+		_velocity.y += _GRAVITY / 5.0
+	else:
+		_velocity.y = _GRAVITY
 
 
 func _on_FlyTimer_timeout()-> void:
