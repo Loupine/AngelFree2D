@@ -4,11 +4,11 @@ extends KinematicBody2D
 const _GRAVITY := 300
 const _WING_FORCE := 1500
 
-var can_fly := true
+var _can_fly := true
 var _velocity := Vector2.ZERO
 
-onready var fly_timer := get_node("FlyTimer")
-onready var animated_sprite := get_node("AnimatedSprite")
+onready var _fly_timer := get_node("FlyTimer")
+onready var _animated_sprite := get_node("AnimatedSprite")
 
 
 func _physics_process(_delta)-> void:
@@ -20,10 +20,10 @@ func _physics_process(_delta)-> void:
 
 
 func _hande_input()-> void:
-	if Input.is_action_pressed("fly_up") and can_fly:
+	if Input.is_action_pressed("fly_up") and _can_fly:
 		_velocity.y = -_WING_FORCE
-		can_fly = false
-		fly_timer.start()
+		_can_fly = false
+		_fly_timer.start()
 
 
 func _handle_collison()-> void:
@@ -34,7 +34,9 @@ func _handle_collison()-> void:
 
 
 func _die()-> void:
-	animated_sprite.animation = "die"
+	_animated_sprite.animation = "die"
+	_fly_timer.stop()
+	_can_fly = false
 
 
 func _process_gravity()-> void:
@@ -45,10 +47,10 @@ func _process_gravity()-> void:
 
 
 func _on_FlyTimer_timeout()-> void:
-	can_fly = true
+	_can_fly = true
 
 
 func _on_AnimatedSprite_animation_finished()-> void:
-	if animated_sprite.animation == "die":
-		animated_sprite.stop()
+	if _animated_sprite.animation == "die":
+		_animated_sprite.stop()
 		queue_free()

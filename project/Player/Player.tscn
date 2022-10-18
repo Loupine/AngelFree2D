@@ -96,12 +96,14 @@ radius = 24.0
 height = 108.0
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )
 frames = SubResource( 10 )
 animation = "flying"
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
