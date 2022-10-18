@@ -102,7 +102,6 @@ script = ExtResource( 2 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 10 )
 animation = "flying"
-frame = 4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -112,4 +111,5 @@ shape = SubResource( 11 )
 [node name="FlyTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="FlyTimer" to="." method="_on_FlyTimer_timeout"]
