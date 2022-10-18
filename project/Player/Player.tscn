@@ -108,3 +108,8 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -9, 5 )
 shape = SubResource( 11 )
+
+[node name="FlyTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="FlyTimer" to="." method="_on_FlyTimer_timeout"]
