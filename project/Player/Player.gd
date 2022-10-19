@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 
 const _GRAVITY := 300
-const _WING_FORCE := 1500
+const _WING_FORCE := 1400
 
 var _can_fly := true
 var _velocity := Vector2.ZERO
@@ -21,10 +21,7 @@ func _physics_process(_delta)-> void:
 
 func _hande_input()-> void:
 	if Input.is_action_pressed("fly_up") and _can_fly:
-		if position.y > 200:
-			_velocity.y = -_WING_FORCE
-		else:
-			_velocity.y = 0.0
+		_velocity.y = -_WING_FORCE
 		_can_fly = false
 		_fly_timer.start()
 
