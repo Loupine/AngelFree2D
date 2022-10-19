@@ -13,15 +13,18 @@ onready var _animated_sprite := get_node("AnimatedSprite")
 
 func _physics_process(_delta)-> void:
 	_hande_input()
-	_handle_collison()
 	_process_gravity()
 	_velocity.x = 0
 	_velocity = move_and_slide(_velocity, Vector2.UP)
+	_handle_collison()
 
 
 func _hande_input()-> void:
 	if Input.is_action_pressed("fly_up") and _can_fly:
-		_velocity.y = -_WING_FORCE
+		if position.y > 200:
+			_velocity.y = -_WING_FORCE
+		else:
+			_velocity.y = 0.0
 		_can_fly = false
 		_fly_timer.start()
 

@@ -94,7 +94,7 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=27]
 extents = Vector2( 24, 80 )
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=["player"]]
 collision_mask = 3
 script = ExtResource( 2 )
 
@@ -102,7 +102,7 @@ script = ExtResource( 2 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 10 )
 animation = "flying"
-frame = 5
+frame = 7
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

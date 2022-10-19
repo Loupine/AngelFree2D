@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/World.gd" type="Script" id=2]
+[ext_resource path="res://ParallaxBackground/ParallaxBackground.tscn" type="PackedScene" id=3]
 
 [node name="World" type="Control"]
 anchor_right = 1.5
@@ -13,15 +14,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 202, 406 )
-
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-current = true
+[node name="ParallaxBackground" parent="." instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 200, 536 )
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]

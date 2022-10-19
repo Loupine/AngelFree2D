@@ -18,3 +18,8 @@ func _physics_process(_delta)-> void:
 	
 	if position.x < -100:
 		queue_free()
+
+
+func _on_BatAttackArea_body_entered(body):
+	if body.is_in_group("player"):
+		body.queue_free()

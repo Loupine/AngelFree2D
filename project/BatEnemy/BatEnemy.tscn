@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://BatEnemy/bat_sprites.png" type="Texture" id=1]
 [ext_resource path="res://BatEnemy/BatEnemy.gd" type="Script" id=2]
@@ -42,7 +42,10 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=8]
-radius = 18.0
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 24.5, 16 )
 
 [node name="BatEnemy" type="KinematicBody2D" groups=["enemies"]]
 collision_layer = 2
@@ -52,9 +55,17 @@ script = ExtResource( 2 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 7 )
 animation = "flying"
-frame = 4
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -6 )
 shape = SubResource( 8 )
+
+[node name="BatAttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BatAttackArea"]
+position = Vector2( -0.5, -6 )
+shape = SubResource( 9 )
+
+[connection signal="body_entered" from="BatAttackArea" to="." method="_on_BatAttackArea_body_entered"]

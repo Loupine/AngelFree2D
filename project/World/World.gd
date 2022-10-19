@@ -2,6 +2,7 @@ extends Control
 
 
 onready var bat_enemy_preload := preload("res://BatEnemy/BatEnemy.tscn")
+onready var player := get_node("Player")
 
 
 func _ready()-> void:
