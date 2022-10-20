@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/World.gd" type="Script" id=2]
 [ext_resource path="res://ParallaxBackground/ParallaxBackground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Common/Cabal-w5j3.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 989, 26.5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
 
 [node name="World" type="Control"]
 anchor_right = 1.5
@@ -39,5 +46,16 @@ autostart = true
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 200, 536 )
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.155
+margin_bottom = -0.399994
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "0
+"
+align = 1
+valign = 1
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
