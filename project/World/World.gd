@@ -17,7 +17,6 @@ func _ready()-> void:
 func _physics_process(_delta:float)-> void:
 	if _is_player_alive:
 		_increment_score()
-	
 
 
 func _increment_score()-> void:
