@@ -13,7 +13,7 @@ onready var _fly_timer := get_node("FlyTimer")
 onready var _animated_sprite := get_node("AnimatedSprite")
 
 
-func _physics_process(_delta)-> void:
+func _physics_process(_delta:float)-> void:
 	_hande_input()
 	_process_gravity()
 	_velocity.x = 0
@@ -30,8 +30,8 @@ func _hande_input()-> void:
 
 func _handle_collison()-> void:
 	for i in get_slide_count():
-		var collision := get_slide_collision(i)
-		if collision.collider.is_in_group("enemies"):
+		var _collision := get_slide_collision(i)
+		if _collision.collider.is_in_group("enemies"):
 			die()
 
 
