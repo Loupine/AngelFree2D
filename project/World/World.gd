@@ -28,3 +28,7 @@ func _spawn_enemies(var count : int)-> void:
 func _on_SpawnTimer_timeout()-> void:
 	_spawn_enemies(randi() % 5)
 	randomize()
+
+
+func _on_Player_player_died():
+	_is_player_alive = false

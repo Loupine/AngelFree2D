@@ -59,3 +59,4 @@ align = 1
 valign = 1
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+[connection signal="player_died" from="Player" to="." method="_on_Player_player_died"]

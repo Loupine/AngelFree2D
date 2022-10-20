@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 
+signal player_died
+
 const _GRAVITY := 300
 const _WING_FORCE := 1400
 
@@ -37,6 +39,7 @@ func die()-> void:
 	_animated_sprite.animation = "die"
 	_fly_timer.stop()
 	_can_fly = false
+	emit_signal("player_died")
 
 
 func _process_gravity()-> void:
