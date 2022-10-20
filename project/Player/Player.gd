@@ -30,10 +30,10 @@ func _handle_collison()-> void:
 	for i in get_slide_count():
 		var collision := get_slide_collision(i)
 		if collision.collider.is_in_group("enemies"):
-			_die()
+			die()
 
 
-func _die()-> void:
+func die()-> void:
 	_animated_sprite.animation = "die"
 	_fly_timer.stop()
 	_can_fly = false

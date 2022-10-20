@@ -20,6 +20,6 @@ func _physics_process(_delta)-> void:
 		queue_free()
 
 
-func _on_BatAttackArea_body_entered(body):
+func _on_BatAttackArea_body_entered(body:PhysicsBody2D):
 	if body.is_in_group("player"):
-		body.queue_free()
+		body.call("die")
