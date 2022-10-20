@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lurking_evil.ogg-912db3222121214fd5cc8b354cf85d9e.oggstr"
+
+[deps]
+
+source_file="res://Common/lurking_evil.ogg"
+dest_files=[ "res://.import/lurking_evil.ogg-912db3222121214fd5cc8b354cf85d9e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

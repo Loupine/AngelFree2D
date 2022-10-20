@@ -8,9 +8,11 @@ onready var _bat_enemy_preload := preload("res://BatEnemy/BatEnemy.tscn")
 onready var _player := get_node("Player")
 onready var _score_label := get_node("ScoreLabel")
 onready var _restart_button := get_node("RestartButton")
+onready var _music_player := get_node("/root/MusicPlayer")
 
 
 func _ready()-> void:
+	_music_player.stream_paused = false
 	randomize()
 
 
@@ -44,6 +46,7 @@ func _on_SpawnTimer_timeout()-> void:
 func _on_Player_player_died()-> void:
 	_is_player_alive = false
 	_show_restart_button()
+	_music_player.stream_paused = true
 
 
 func _on_RestartButton_pressed()-> void:

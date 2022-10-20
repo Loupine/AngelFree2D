@@ -14,6 +14,10 @@ config/name="AngelFree"
 run/main_scene="res://Menu/Menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+MusicPlayer="*res://Common/MusicPlayer.tscn"
+
 [display]
 
 window/size/width=1920
