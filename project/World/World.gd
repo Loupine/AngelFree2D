@@ -49,4 +49,4 @@ func _on_Player_player_died():
 
 func _on_RestartButton_pressed():
 	# warning-ignore:return_value_discarded
-	get_tree().reload_current_scene()
+	get_tree().change_scene("res://Menu/Menu.tscn")
