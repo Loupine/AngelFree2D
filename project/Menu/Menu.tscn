@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ParallaxBackground/ParallaxBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Common/cabal_font.ttf" type="DynamicFontData" id=2]
@@ -20,6 +20,12 @@ font_data = ExtResource( 2 )
 size = 50
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=4]
+size = 35
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -36,10 +42,11 @@ custom_fonts/font = SubResource( 1 )
 text = "AngelFree"
 align = 1
 
-[node name="Label" type="Label" parent="."]
-margin_top = 971.0
-margin_right = 1920.0
-margin_bottom = 1076.0
+[node name="ControlLabel" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 809.0
+margin_right = 1925.0
+margin_bottom = 891.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Fly up with space or left click."
@@ -47,11 +54,28 @@ align = 1
 valign = 2
 
 [node name="StartButton" type="Button" parent="."]
-margin_left = 882.0
-margin_top = 700.0
-margin_right = 1038.0
-margin_bottom = 765.0
+margin_left = 871.0
+margin_top = 550.0
+margin_right = 1027.0
+margin_bottom = 615.0
 custom_fonts/font = SubResource( 3 )
 text = "Start"
+
+[node name="AttributionLabel" type="RichTextLabel" parent="."]
+margin_left = 4.0
+margin_top = 954.0
+margin_right = 1920.0
+margin_bottom = 1087.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = " Lurking Evil by Darren Curtis | [url]https://www.darrencurtismusic.com/[/url]
+Music promoted by Choosic.com | [url]https://www.chosic.com/free-music/all/[/url]
+Creative Commons CC BY 3.0 | [url]https://creativecommons.org/licenses/by/3.0/[/url]
+"
+text = " Lurking Evil by Darren Curtis | https://www.darrencurtismusic.com/
+Music promoted by Choosic.com | https://www.chosic.com/free-music/all/
+Creative Commons CC BY 3.0 | https://creativecommons.org/licenses/by/3.0/
+"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
